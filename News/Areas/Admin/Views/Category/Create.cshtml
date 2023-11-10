@@ -1,0 +1,18 @@
+﻿@using News.Areas.Admin.ViewModels
+@model NewsCategoryViewModels
+
+
+<form class="row g-3 container" asp-action="Create" method="post">
+    <div class="col-md-6">
+        <label asp-for="Name" class="form-label">نام دسته بندی</label>
+        <input type="text" asp-for="Name" class="form-control">
+    </div>
+@*ترتیب نمایش*@
+    @*<div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input type="password" class="form-control" id="inputPassword4">
+        </div>
+    *@
+    <button type="submit" class="btn btn-primary">ایجاد</button>
+    </div>
+</form>

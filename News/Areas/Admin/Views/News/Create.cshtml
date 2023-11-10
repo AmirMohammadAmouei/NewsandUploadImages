@@ -1,0 +1,30 @@
+﻿@using News.Areas.Admin.ViewModels
+@model NewsModel
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col">
+            <input type="text" asp-for="Title" class="form-control" placeholder="عنوان خبر" />
+        </div>
+        <div class="col">
+            <input type="text" asp-for="Description" class="form-control" placeholder="متن خبر" />
+        </div>
+
+
+        <div class="col">
+            <input type="file" asp-for="Image" placeholder="Upload File" class="form-control" />
+        </div>
+
+        <select class="col" asp-for="@Model.CategoryId" asp-items="@Model.NewsCategory">
+            <option>--Select--</option>
+        </select>
+        @* <div class="col">
+        <input type="text" asp-for="Description" class="form-control" placeholder="Description" />
+        </div>
+        <div class="col">
+        <input type="text" asp-for="Description" class="form-control" placeholder="Description" />
+        </div>*@
+    </div>
+
+    <button type="submit" class="btn btn-success">ثبت </button>
+</form>

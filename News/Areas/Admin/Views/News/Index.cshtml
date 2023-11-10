@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NewsModel>
+
+
+<a class="btn btn-success" asp-controller="News" asp-action="Create">ایجاد خبر</a>
+@if (Model.Any())
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">عنوان خبر</th>
+                <th scope="col">متن خبر</th>
+                <th scope="col">دسته بندی خبر</th>
+                <th scope="col">تاریخ تولید خبر</th>
+                <th scope="col">عکس</th>
+                <th scope="col">عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.CategoryId</td>
+                    <td>@item.CreationDate</td>
+
+                    <td>
+                        <img class="rounded-circle" src="~/image/@item.Image" style="width: 70px; height: 70px" />
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" asp-controller="News" asp-action="Edit" asp-route-id="@item.Id">ویرایش</a>
+                        <a class="btn btn-danger" asp-controller="News" asp-action="Delete" asp-route-id="@item.Id">حذف</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <h3 class="text text-danger text-align-center">خبری ثبت نشده است.</h3>
+}
