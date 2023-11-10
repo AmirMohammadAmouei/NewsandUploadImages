@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NewsModel>
+﻿@model List<News.Areas.Admin.ViewModels.NewsViewModels>
 
 
 <a class="btn btn-success" asp-controller="News" asp-action="Create">ایجاد خبر</a>
@@ -24,7 +24,7 @@
                     <th scope="row">@item.Id</th>
                     <td>@item.Title</td>
                     <td>@item.Description</td>
-                    <td>@item.CategoryId</td>
+                    <td>@item.Category</td>
                     <td>@item.CreationDate</td>
 
                     <td>

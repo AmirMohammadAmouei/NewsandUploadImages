@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Net.Http.Headers;
+using News.Areas.Admin.Models;
 using News.Areas.Admin.Services;
 using News.Areas.Admin.ViewModels;
 using News.Context;
@@ -25,7 +26,17 @@ namespace News.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var result = _context.News.ToList();
+            var result = _context.News.Include(x => x.Category).Select(x => new NewsViewModels
+            {
+                Id = x.Id,
+                Title = x.Title,
+                //NewsCategory = x.NewsCategory,
+                Image = x.Image,
+                Category = x.Category.Name,
+                CreationDate = x.CreationDate,
+                Description = x.Description,
+                CountView = 1
+            }).ToList();
 
             return View(result);
         }

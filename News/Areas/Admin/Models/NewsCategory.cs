@@ -7,7 +7,7 @@ namespace News.Areas.Admin.Models
         public long Id { get; set; }
         public string Name { get; set; }
         public DateTime CreationDate { get; set; }
-        public IEnumerable<NewsModel> News { get; set; }
+        public List<NewsModel> News { get; set; }
 
     }
 }
