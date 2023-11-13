@@ -12,11 +12,12 @@ namespace News.Context
 
         public DbSet<NewsCategory> NewsCategories { get; set; }
         public DbSet<NewsModel> News { get; set; }
+        public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string connectionString = "Data Source=.\\AMIR;Initial Catalog=AftabSaNews;User Id=AmirFar; Password=27101377";
+                string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AftabSaNewsDb;Integrated Security=true";
                 optionsBuilder.UseSqlServer(connectionString);
             }
             base.OnConfiguring(optionsBuilder);

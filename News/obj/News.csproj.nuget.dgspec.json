@@ -1,32 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MSI\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj": {}
+    "C:\\Users\\AftabAsa\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MSI\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj": {
+    "C:\\Users\\AftabAsa\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MSI\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj",
+        "projectUniqueName": "C:\\Users\\AftabAsa\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj",
         "projectName": "News",
-        "projectPath": "C:\\Users\\MSI\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj",
-        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MSI\\Desktop\\NewsAftabAsa\\News\\News\\obj\\",
+        "projectPath": "C:\\Users\\AftabAsa\\Desktop\\NewsAftabAsa\\News\\News\\News.csproj",
+        "packagesPath": "C:\\Users\\AftabAsa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AftabAsa\\Desktop\\NewsAftabAsa\\News\\News\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AftabAsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,6 +47,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNet.WebPages": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.24, )"
@@ -64,14 +70,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.24, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[6.0.16, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -93,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.416\\RuntimeIdentifierGraph.json"
         }
       }
     }

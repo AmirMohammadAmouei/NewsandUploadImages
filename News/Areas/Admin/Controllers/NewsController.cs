@@ -1,14 +1,10 @@
-﻿using System.Net.Mime;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Net.Http.Headers;
 using News.Areas.Admin.Models;
-using News.Areas.Admin.Services;
 using News.Areas.Admin.ViewModels;
 using News.Context;
-using News.Models;
 
 namespace News.Areas.Admin.Controllers
 {

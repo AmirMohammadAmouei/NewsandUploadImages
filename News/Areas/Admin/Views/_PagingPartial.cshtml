@@ -1,0 +1,28 @@
+﻿@using News.Areas.Admin.ViewModels
+@model PagingViewModels
+
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        @* pageCount , currentPage = Math.Ceiling(totalRowItem / limit)*@
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        @for (int i = 1; i <= Model.Pages; i++)
+        {
+            if (i == Convert.ToInt32(ViewData["Page"]))
+            {
+                <li class="page-item active"><a class="page-link" href="@Model.Address?page=@i">@i</a></li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link" href="@Model.Address?page=@i">@i</a></li>
+
+            }
+        }
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>

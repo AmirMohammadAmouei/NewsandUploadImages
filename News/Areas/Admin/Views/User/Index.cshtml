@@ -1,0 +1,80 @@
+﻿@using News.Areas.Admin.ViewModels
+@model List<UserViewModels>
+
+
+    @{
+    int pages = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(ViewData["TotalCount"]) / Convert.ToInt32(ViewData["Limit"])));
+
+    var paginModel = new PagingViewModels
+            {
+                Page = Convert.ToInt32(ViewData["Page"]),
+                Pages = pages,
+                Address = "/User/Index"
+            };
+}
+
+<a class="btn btn-success" asp-controller="User" asp-action="Create">ایجاد کاربر جدید</a>
+
+<div class="content-body">
+
+    <div class="content">
+        <form asp-action="Index" method="get">
+            <div id="example2_filter" class="dataTables_filter">
+                <label>
+                    جستجو بر اساس:
+                    <input type="search" name="userName" value="@ViewBag.Filter.UserName" class="form-control form-control-sm" placeholder=" نام کاربری" aria-controls="example2">
+                    <input type="search" name="PersonalId" value="@ViewBag.Filter.PersonalId" class="form-control form-control-sm" placeholder="شماره پرسنلی" aria-controls="example2">
+                    <input type="search" name="PhoneNumber" value="@ViewBag.Filter.PhoneNumber" class="form-control form-control-sm" placeholder="شماره موبایل" aria-controls="example2">
+                </label>
+            </div>
+            <button type="submit" class="btn btn-secondary">جستجو</button>
+        </form>
+
+        @if (Model.Any())
+        {
+
+
+            <table class="table table-bordered">
+
+                <thead>
+                    <tr>
+                        <th scope="col">ردیف</th>
+                        <th scope="col">نام</th>
+                        <th scope="col">نام خانوادگی</th>
+                        <th scope="col">نام کاربری</th>
+                        <th scope="col">شماره پرسنلی</th>
+                        <th scope="col">شماره همراه</th>
+                        <th scope="col">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.Id</th>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.UserName</td>
+                            <td>@item.PersonalId</td>
+                            <td>@item.PhoneNumber</td>
+
+                            <td>
+                                <a class="btn btn-warning" asp-controller="User"
+                           asp-action="Edit" asp-route-id="@item.Id">ویرایش کاربر</a>
+
+                                <a class="btn btn-danger" asp-controller="User" asp-action="Remove" asp-route-id="@item.Id">حذف کاربر</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+                @*<partial name="/Areas/Admin/Views/User" model="@paginModel" />*@
+            </table>
+        }
+        else
+        {
+            <h3 class="text text-danger">کاربری ایجا نشده است!</h3>
+        }
+    </div>
+</div>

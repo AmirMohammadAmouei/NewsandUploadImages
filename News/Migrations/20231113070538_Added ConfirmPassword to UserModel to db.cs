@@ -4,23 +4,23 @@
 
 namespace News.Migrations
 {
-    public partial class DeletedSelectedCategoryfieldfrommodel : Migration
+    public partial class AddedConfirmPasswordtoUserModeltodb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "SelectedCategory",
-                table: "News");
+            migrationBuilder.AddColumn<string>(
+                name: "ConfirmPassword",
+                table: "Users",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "SelectedCategory",
-                table: "News",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+            migrationBuilder.DropColumn(
+                name: "ConfirmPassword",
+                table: "Users");
         }
     }
 }

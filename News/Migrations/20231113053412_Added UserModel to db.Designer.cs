@@ -12,8 +12,8 @@ using News.Context;
 namespace News.Migrations
 {
     [DbContext(typeof(NewsDbContext))]
-    [Migration("20231109141508_Deleted SelectedCategory field from model")]
-    partial class DeletedSelectedCategoryfieldfrommodel
+    [Migration("20231113053412_Added UserModel to db")]
+    partial class AddedUserModeltodb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,7 @@ namespace News.Migrations
                     b.ToTable("NewsCategories");
                 });
 
-            modelBuilder.Entity("News.Models.NewsModel", b =>
+            modelBuilder.Entity("News.Areas.Admin.Models.NewsModel", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,9 +65,9 @@ namespace News.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
+                    b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -80,7 +80,44 @@ namespace News.Migrations
                     b.ToTable("News");
                 });
 
-            modelBuilder.Entity("News.Models.NewsModel", b =>
+            modelBuilder.Entity("News.Areas.Admin.Models.User", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonalId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("News.Areas.Admin.Models.NewsModel", b =>
                 {
                     b.HasOne("News.Areas.Admin.Models.NewsCategory", "Category")
                         .WithMany("News")
