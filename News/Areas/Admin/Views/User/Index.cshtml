@@ -5,7 +5,7 @@
     @{
     int pages = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(ViewData["TotalCount"]) / Convert.ToInt32(ViewData["Limit"])));
 
-    var paginModel = new PagingViewModels
+    var pagingModel = new PagingViewModels
             {
                 Page = Convert.ToInt32(ViewData["Page"]),
                 Pages = pages,
@@ -69,7 +69,7 @@
 
                 </tbody>
 
-                @*<partial name="/Areas/Admin/Views/User" model="@paginModel" />*@
+                <partial name="_PagingPartial" model="@pagingModel"/>
             </table>
         }
         else
